@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Demo Jquery y JqueryUI</title>
+    <link rel="stylesheet" href="css/miestilo.css" type="text/css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body>
+      <h2>Ejemplo de Uso de jQuery</h2>
+      <hr>
+     <div class="columns">
+      <div class="column uno">
+
+        <h3>Ingrese Datos</h3>
+        <div>
+          <label for="nombre">Escriba su nombre:</label>
+          <input type="text" name="nombre" value="" id="nombre">
+          <br>
+          <br>
+          <label for="apellido">Escriba su apellido</label>
+          <input type="text" name="apellido" value="" id="apellido">
+          <br>
+          <br>
+          <label for="fecha_nacimiento">Escriba su fecha de fecha_nacimiento</label>
+          <input type="text" name="fecha_nacimiento" value="" id="fecha_nacimiento">
+          <br>
+          <br>
+          <button type="submit">Ingresar Datos</button>
+        </div>
+      </div>
+      <div class="column dos">
+          <h3>Presentación de Información</h3>
+          <p id="mensajeFinal1"></p>
+          <p id="mensajeFinal2"></p>
+          <p id="mensajeFinal3"></p>
+      </div>
+    </div>
+  </body>
+  <script>
+    $(document).ready(function() {
+      $("#fecha_nacimiento").datepicker();
+      $( "button" ).click(function() {
+        var texto1 = $('#nombre').val();
+        var texto2 = $('#apellido').val();
+        var texto3 = $('#fecha_nacimiento').val();
+        $('#mensajeFinal1').append("<b>Nombre:</b> " +"<span>"+texto1+"</span");
+        $('#mensajeFinal2').append("<b>Apellido:</b> " +"<span>"+texto2+"</span");
+        $('#mensajeFinal3').append("<b>Fecha:</b> " +"<span>"+texto3+"</span");
+      });
+    });
+  </script>
+</html>

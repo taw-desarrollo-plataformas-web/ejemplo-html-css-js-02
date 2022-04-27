@@ -1,0 +1,38 @@
+/* tomando de https://devpractical.com/two-column-layout-html-css/ */
+/* Información con fines académicos*/
+
+body {
+  background: #FEFEFD;
+  padding: 20px;
+
+}
+
+.columns {
+width: 100%;
+}
+
+.column {
+  width:100%;
+}
+
+@media (min-width: 48em) {
+  .column {
+    width: 40%;
+    float:left;
+  }
+  .columns {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.uno{
+  padding: 10px;
+  border-right-style: dashed;
+  border-width: thin;
+}
+
+.dos{
+  padding: 10px;
+}
