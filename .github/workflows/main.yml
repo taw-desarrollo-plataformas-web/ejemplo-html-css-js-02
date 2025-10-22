@@ -2,8 +2,8 @@ name: Deploy static site to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # o "master" si usas master
-  workflow_dispatch:
+    branches: [ main ]   # cambia si usas otra rama
+  workflow_dispatch:      # permite ejecutarlo manualmente
 
 permissions:
   contents: read
@@ -24,17 +24,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Opcional: evita que GitHub trate tu sitio como Jekyll (útil si tienes carpetas que empiezan con "_")
+      # Evita que Jekyll oculte carpetas con "_" (opcional pero útil)
       - name: Disable Jekyll
         run: echo > .nojekyll
 
-      # Si tu sitio está en la raíz del repo, usa "."
-      # Si está en una carpeta (ej. "dist" o "docs"), cambia path a esa carpeta
+      # Sube tu sitio estático como artefacto
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ejemplo  # ./dist  ó  ./docs  si corresponde
+          path: .           # ./docs o ./dist si corresponde
 
+      # Publica en GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
